@@ -9,6 +9,7 @@ import {jobRoute} from "./routes/job.js";
 import {applicationRoute} from "./routes/application.js";
 import {bookmarkRoute} from "./routes/bookmark.js";
 import {profileRoute} from "./routes/profile.js";
+import {documentRoute} from "./routes/document.js";
 
 const app = express();
 
@@ -44,5 +45,6 @@ app.use('/jobs', jobRoute())
 app.use('/applications', applicationRoute())
 app.use('/', bookmarkRoute())
 app.use("/profile", profileRoute());
+app.use('/documents', documentRoute())
 
 export default app;
