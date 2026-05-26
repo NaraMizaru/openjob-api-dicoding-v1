@@ -15,8 +15,8 @@ export const jobSchema = Joi.object({
     location_city: Joi.string().max(100).optional(),
 });
 
-export const updateJobSchema = Joi.object({
-    title: Joi.string().optional(),
-    description: Joi.string().optional(),
-    salary_max: Joi.number().integer().positive().required(),
-})
+// export const updateJobSchema = Joi.object({
+//     title: Joi.string().optional(),
+//     description: Joi.string().optional(),
+//     salary_max: Joi.number().integer().positive().required(),
+// })
