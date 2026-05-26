@@ -82,7 +82,9 @@ const findAllByUser = async (req, res) => {
 
         return res.status(200).send({
             status: "success",
-            data: result.rows,
+            data: {
+                bookmarks: result.rows,
+            },
         });
     } catch (err) {
         return res.status(500).send({

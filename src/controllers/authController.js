@@ -18,7 +18,7 @@ const login = async (req, res) => {
         );
 
         if (result.rowCount === 0) {
-            return res.status(400).send({
+            return res.status(401).send({
                 status: "failed",
                 message: "Invalid email or password",
             });
@@ -29,7 +29,7 @@ const login = async (req, res) => {
         const passMatch = await bcrypt.compare(password, user.password);
 
         if (!passMatch) {
-            return res.status(400).send({
+            return res.status(401).send({
                 status: "failed",
                 message: "Invalid email or password",
             });
