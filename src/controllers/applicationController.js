@@ -145,7 +145,9 @@ const findByJob = async (req, res) => {
 
         return res.status(200).send({
             status: "success",
-            data: result.rows,
+            data: {
+                applications: result.rows,
+            },
         });
     } catch (err) {
         return res.status(500).send({

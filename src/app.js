@@ -8,6 +8,7 @@ import {categoryRoute} from "./routes/category.js";
 import {jobRoute} from "./routes/job.js";
 import {applicationRoute} from "./routes/application.js";
 import {bookmarkRoute} from "./routes/bookmark.js";
+import {profileRoute} from "./routes/profile.js";
 
 const app = express();
 
@@ -42,5 +43,6 @@ app.use('/categories', categoryRoute())
 app.use('/jobs', jobRoute())
 app.use('/applications', applicationRoute())
 app.use('/', bookmarkRoute())
+app.use("/profile", profileRoute());
 
 export default app;

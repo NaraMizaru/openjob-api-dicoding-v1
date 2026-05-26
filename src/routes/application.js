@@ -10,10 +10,10 @@ export const applicationRoute = () => {
     router.post("/", auth, validate(applicationSchema), applicationController.create);
     router.put("/:id", auth, validate(applicationSchema), applicationController.update);
     router.delete("/:id", auth, applicationController.drop);
-    router.get("/", applicationController.findAll);
-    router.get("/user/:userId", applicationController.findByUser);
-    router.get("/job/:jobId", applicationController.findByJob);
-    router.get("/:id", applicationController.findOne);
+    router.get("/", auth, applicationController.findAll);
+    router.get("/user/:userId", auth, applicationController.findByUser);
+    router.get("/job/:jobId", auth, applicationController.findByJob);
+    router.get("/:id", auth, applicationController.findOne);
 
     return router;
 };
