@@ -9,7 +9,7 @@ const router = express.Router()
 export const authRoute = () => {
     router.post('/', validate(authSchema), authController.login);
     router.put('/', authController.refreshAuthentication);
-    router.delete('/', authController.logout);
+    router.delete('/', auth, authController.logout);
 
     return router;
 }
