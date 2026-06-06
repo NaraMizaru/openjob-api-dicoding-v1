@@ -1,4 +1,4 @@
-COMPOSE=docker compose -f docker-compose.pgsql.yaml -p pgsql-openjob
+COMPOSE=docker compose -f docker-compose.util.yaml -p util-openjob
 
 up:
 	$(COMPOSE) up -d
@@ -16,11 +16,35 @@ ps:
 logs:
 	$(COMPOSE) logs -f
 
-exec:
+logs-pgsql:
+	$(COMPOSE) logs -f pgsql
+
+logs-redis:
+	$(COMPOSE) logs -f redis
+
+logs-rabbitmq:
+	$(COMPOSE) logs -f rabbitmq
+
+exec-pgsql:
 	$(COMPOSE) exec pgsql bash
+
+exec-redis:
+	$(COMPOSE) exec redis sh
+
+exec-rabbitmq:
+	$(COMPOSE) exec rabbitmq sh
 
 psql:
 	$(COMPOSE) exec pgsql psql -U postgres -d openjob
+
+redis-cli:
+	$(COMPOSE) exec redis redis-cli
+
+rabbitmq-status:
+	$(COMPOSE) exec rabbitmq rabbitmq-diagnostics status
+
+rabbitmq-ping:
+	$(COMPOSE) exec rabbitmq rabbitmq-diagnostics ping
 
 clean:
 	$(COMPOSE) down -v
